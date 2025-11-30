@@ -1,0 +1,84 @@
+spring:
+  application:
+    name: trail-racer-command
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-app-password}
+    from: ${MAIL_FROM:${MAIL_USERNAME:your-email@gmail.com}}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      initial-size: 15
+      max-wait: 20000
+      max-active: 50
+      max-idle: 15
+      min-idle: 8
+      default-auto-commit: true
+      name: ps-tomcat-jdbc
+      validation-query: select 1
+      test-on-borrow: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 3600
+      logAbandoned: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    create-schemas: true
+    default-schema: public
+    schemas: public
+    validate-migration-naming: true
+
+  sql:
+    init:
+      mode: always
+
+  springdoc:
+    api-docs:
+      path: /api/docs
+    packages-to-scan: com.trailracercommand
+    swagger-ui:
+      path: /swagger-ui.html
+      default-models-expand-depth: -1
+      syntaxHighlight:
+        activated: false
+  web:
+    error:
+      include-message: always
+      include-binding-errors: always
+
+server:
+  port: 8080
+
+application:
+  security:
+    jwt:
+      token-prefix: Bearer
+      access-token-expiration: 300000
+      refresh-token-expiration: 28800000
+      reset-password-token-expiration: 900000
+      secret-key: # Set per profile=
+
+logging:
+  level:
+    org.hibernate.orm.connections.pooling: OFF
+    sun.misc.Unsafe: OFF
+
+frontend:
+  url: # Set per profile

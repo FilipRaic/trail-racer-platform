@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  kafka:
+    bootstrap-servers: localhost:9092
+
+application:
+  security:
+    jwt:
+      secret-key: ZjMzYzM4NzYzMTg0OWE4ZTY5M2ZlYjZhMDIyMjA4ZGQzYTNlZmQ4ZmU0MzU3ZThhNTc1Yzg1NTZiYzEyY2VlNzM5ZGM2MjdkMGY5NWMyY2Y5NmRiMDg3ZGFkOTM3NWEwODA5ODJjZWQ3NGI0MDdiMzZmYzlhOGU0NTEyODFmYzg=
